@@ -163,6 +163,16 @@ app.post('/getallparcelbyweightrange',function(req,res){
         }
     });
 });
+app.post('/getallparcelbynonfragile',function(req,res){
+    Parcel.find({isFeagile:false},function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("getallparcel",{db_list:result});
+        }
+    });
+});
 
 
 
